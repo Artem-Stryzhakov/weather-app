@@ -8,7 +8,7 @@ export function ForecastWeather(props) {
                 </div>
                 <span className="weather-status">{props.text}</span>
             </div>
-            <span className="fs-2 fw-bold">{props.temperature} °C</span>
+            <span className="fs-2 fw-bold">{Math.round(props.temperature, 1)} °C</span>
         </div>
     )
 }
