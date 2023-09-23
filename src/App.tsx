@@ -1,5 +1,5 @@
-import { WeatherCurrent, Loading, WeatherFuture, Forecast } from "./components";
-import { useWeather } from "./hooks/useWeather";
+import { WeatherToday, Loading, WeekForecast, Forecast } from "./components";
+import { useWeather } from "./hooks";
 
 function App() {
     const { weather, loading, getWeather } = useWeather();
@@ -12,18 +12,16 @@ function App() {
 
 
 
-    // CURRENT //
     const { icon, text } = weather.data.current.condition;
     const { humidity, temp_c, pressure_mb, wind_kph } = weather.data.current;
     const { name, country } = weather.data.location;
 
 
-    // FORECAST //
     const forecast = weather.data.forecast.forecastday.map((weather, i) => (
         <Forecast
             date={weather.date}
             icon={weather.day.condition.icon}
-            statusText={weather.day.condition.text}
+            text={weather.day.condition.text}
             temperature={weather.day.avgtemp_c}
             key={i}
         />
@@ -33,7 +31,7 @@ function App() {
 
     return (
         <div className='weather-body container rounded d-flex flex-column justify-content-around position-relative'>
-            <WeatherCurrent
+            <WeatherToday
                 icon={icon}
                 text={text}
                 city={name}
@@ -44,9 +42,9 @@ function App() {
                 wind={wind_kph}
                 handleSearch={getWeather}
             />
-            <WeatherFuture>
+            <WeekForecast>
                 {forecast}
-            </WeatherFuture>
+            </WeekForecast>
         </div>
   );
 }

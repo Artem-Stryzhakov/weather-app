@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-
-
 export type CitySearchProps = {
     handleSearch: (city?: string, days?: string) => void
 }
+
 export function CitySearch({
     handleSearch
 }: CitySearchProps) {

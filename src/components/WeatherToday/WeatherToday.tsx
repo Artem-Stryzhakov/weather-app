@@ -2,19 +2,18 @@ import { DataTypes } from "../../types/DataTypes";
 import { DataDisplay } from "../DataDisplay";
 import { CitySearch, CitySearchProps } from "../CitySearch";
 import { BaseWeatherProps } from "../Weather";
+import { ConditionData } from "../../hooks";
 
 
 
-export type WeatherCurrentProps = {
-    icon: string,
-    text: string,
+export type WeatherTodayProps = {
     city: string,
     country: string
 
-} & BaseWeatherProps & CitySearchProps
+} & BaseWeatherProps & ConditionData & CitySearchProps
 
 
-export function WeatherCurrent({
+export function WeatherToday({
     icon,
     temperature,
     text,
@@ -25,7 +24,7 @@ export function WeatherCurrent({
     wind,
     country
 
-}: WeatherCurrentProps) {
+}: WeatherTodayProps) {
     return (
       <div className='current-weather row w-100 mt-3 m-auto'>
         <section className='main-city-data d-grid col-sm-3'>

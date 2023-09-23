@@ -1,3 +1,4 @@
+//Just imagine this as a json cause too lazy to think about it
 export const DataTypes = {
   Air_Pressure: {
     text: "Air Pressure",

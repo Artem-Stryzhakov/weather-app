@@ -1,3 +1,4 @@
+import { ConditionData } from "../../hooks";
 
 export type BaseWeatherProps = {
     humidity: string | number,
@@ -7,11 +8,9 @@ export type BaseWeatherProps = {
 }
 
 export type WeatherProps = {
-    icon: string,
-    text: string,
     city: string,
     rain: string | number,
-} & BaseWeatherProps
+} & BaseWeatherProps & ConditionData
 
 export function Weather({
     icon,

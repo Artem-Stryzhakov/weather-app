@@ -1,14 +1,14 @@
+import { ConditionData } from "../../hooks";
 
 export type ForecastProps = {
     date: string,
-    statusText: string,
     temperature: string | number,
-    icon: string
-}
+} & ConditionData
+
 export function Forecast({
     icon,
     date,
-    statusText,
+    text,
     temperature
 }: ForecastProps) {
     return (
@@ -16,9 +16,9 @@ export function Forecast({
             <p className="date">{date}</p>
             <div className="d-flex align-items-center gap-1">
                 <div className="icons-forecast">
-                    <img src={icon} alt={statusText} />
+                    <img src={icon} alt={text} />
                 </div>
-                <span className="weather-status">{statusText}</span>
+                <span className="weather-status">{text}</span>
             </div>
             <span className="fs-2 fw-bold">{temperature} °C</span>
         </div>
